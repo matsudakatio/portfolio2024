@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'AdventPro-Light';
+    src: url('../assets/fonts/advent-pro/AdventPro-Light.ttf');
+}
+
+html, body {
+    background-color: #EEE;
+    color: #161616;
+}
+
+h1 {
+    font-family: 'AdventPro-Light';
+}
+
+h2 {
+    font-family: 'font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;'
+}
