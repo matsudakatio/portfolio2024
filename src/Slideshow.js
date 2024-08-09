@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/slideshow.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Slideshow = () => {
   const [images, setImages] = useState([]);

@@ -1,3 +1,57 @@
+.headerContainer {
+    /* border: 1px solid red; */
+    position: relative;
+
+    /* text-align: center; */
+    line-height: 100px;
+}
+
+.mainTitle {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 32px;
+}
+
+.mainTitle .titleBr {
+    display: none;
+}
+
+.sideLink {
+    display: flex;
+    gap: 32px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 32px;
+    line-height: 32px;
+}
+
+@media screen and (max-width: 480px) {
+    .headerContainer {
+        display: flex;
+        margin: 24px 0;
+
+    }
+
+    .sideLink {
+        display: block;
+        font-size: 24px;
+    }
+
+    .mainTitle {
+        line-height: normal;
+        font-size: 24px;
+    }
+
+    .mainTitle .titleBr {
+        display: block;
+    }
+}
+
+
+
+
 .HeaderNav {
     background: transparent;
     border-radius: 3px;

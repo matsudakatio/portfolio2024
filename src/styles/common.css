@@ -3,9 +3,10 @@
     src: url('../assets/fonts/advent-pro/AdventPro-Light.ttf');
 }
 
-html, body {
+body {
     background-color: #EEE;
     color: #161616;
+    padding: 0 50px;
 }
 
 h1 {
@@ -14,4 +15,14 @@ h1 {
 
 h2 {
     font-family: 'font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;'
+}
+
+
+@media screen and (max-width: 959px) {
+
+}
+@media screen and (max-width: 480px) {
+	body {
+        padding: 0 16px;
+    }
 }

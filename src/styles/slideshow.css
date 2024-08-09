@@ -1,5 +1,6 @@
 .imgContainer {
-    width: calc(100% - 100px);
+    /* width: calc(100% - 100px); */
+    width: 100%;
     margin: 0 auto;
     overflow: hidden;
   }
@@ -20,8 +21,8 @@
 .overviewArea {
     display: flex;
     justify-content: space-between;
-    margin: 0 50px;
-    margin-top: 1%;
+    /* margin: 0 50px; */
+    margin-top: 2%;
     }
 
     .left {
