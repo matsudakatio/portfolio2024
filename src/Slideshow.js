@@ -1,15 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/slideshow.css';
-
-gsap.registerPlugin(ScrollTrigger);
+import codeText from './codeText'; // インポート
 
 const Slideshow = () => {
   const [images, setImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [show, setShow] = useState(true);
+  const [visibleLines, setVisibleLines] = useState([]);
+  const [textComplete, setTextComplete] = useState(false);
+  const [showImage, setShowImage] = useState(false);
 
   useEffect(() => {
     // MicroCMSからデータを取得する関数
@@ -27,51 +26,80 @@ const Slideshow = () => {
     };
 
     fetchImages();
+  }, []);
+
+  useEffect(() => {
+    const lines = codeText.split('\n');
+    let currentLine = 0;
 
     const interval = setInterval(() => {
-      setShow(false);
-      setTimeout(() => {
-        setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-        setShow(true);
-      }, 1000); // アニメーション時間（1秒）に合わせる
-    }, 20000); // 3秒ごとに切り替え
+      setVisibleLines(prevLines => [...prevLines, lines[currentLine]]);
+      currentLine += 1;
+
+      if (currentLine >= lines.length) {
+        clearInterval(interval);
+        setTextComplete(true);
+      }
+    }, 100); // 行を表示する間隔
 
     return () => clearInterval(interval);
-  }, [images.length]);
+  }, []);
+
+  useEffect(() => {
+    if (textComplete && images.length > 0) {
+      setShowImage(true);
+      const interval = setInterval(() => {
+        setShowImage(false);
+        setTimeout(() => {
+          setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+          setShowImage(true);
+        }, 500); // アニメーション開始までの遅延
+      }, 20000); // 20秒ごとに切り替え
+
+      return () => clearInterval(interval);
+    }
+  }, [textComplete, images.length]);
 
   if (images.length === 0) {
-    return <div>Loading...</div>;
+    return
+    <div>
+      <div className="imgContainer">
+      Loading...
+      </div>
+
+    </div>;
   }
 
   return (
     <div>
-    <div className="imgContainer">
-            <img
-                src={images[currentIndex].src.url}
-                alt={images[currentIndex].title}
-                className={`imgArea ${show ? 'show' : ''}`}
-            />
-    </div>
-        <div className="overviewArea">
-            <div className="left">
-                <h2 className={`title ${show ? 'show' : ''}`}>
-                    {images[currentIndex].title}
-                </h2>
+      <div className="imgContainer">
+        <div className="codeText">
+          {visibleLines.map((line, index) => (
+            <h3 key={index} className="line">
+              {line}
+            </h3>
+          ))}
 
-                <h3 className={`hurigana ${show ? 'show' : ''}`}>
-                    {images[currentIndex].hurigana}
-                </h3>
-            </div>
-
-            <div className="right">
-                <div className={`place ${show ? 'show' : ''}`}>
-                    <img src='/img/map.png' alt="map"/>
-                    <h2>{images[currentIndex].place}</h2>
-                </div>
-
-                <h2 className={`day ${show ? 'show' : ''}`}>{images[currentIndex].day}</h2>
-            </div>
         </div>
+        {textComplete && (
+          <img
+            src={images[currentIndex].src.url}
+            alt={images[currentIndex].title}
+            className={`imgArea ${showImage ? 'show' : ''}`}
+          />
+        )}
+
+      <div className="heroArea">
+          <div className="first">
+            <h1 >DIRECTOR__</h1 >
+            <h1 >PHOTOGRAPHER__</h1 >
+            <h1 >CODER</h1 >
+          </div>
+        </div>
+      </div>
+
+
+      <p className="copyright">Copyright © Kaito Matsuda All Rights Reserved.</p>
     </div>
   );
 };

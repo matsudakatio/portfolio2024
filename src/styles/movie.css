@@ -1,0 +1,43 @@
+
+    .movieArea {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+  
+  .movieItem {
+    text-align: center;
+    width: 64vw;
+  }
+
+  .movieItem h2 {
+      text-align-last: left;
+      font-size: 16px;
+      margin: 12px 0;
+      font-family: "游明朝", YuMincho, "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN", "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
+      font-weight: normal;
+  }
+  
+  .imageGallery {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .imageGallery img {
+    max-width: 31%;
+    object-fit: cover;
+  }
+
+
+  @media screen and (max-width: 480px) {
+
+    .movieItem {
+        width: 100vw;
+    }
+
+  .movieItem h2 {
+    font-size: 12px;
+}
+  }
+  

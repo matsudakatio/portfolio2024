@@ -3,6 +3,11 @@
     src: url('../assets/fonts/advent-pro/AdventPro-Light.ttf');
 }
 
+@font-face {
+    font-family: 'Mono-space';
+    src: url('../assets/fonts/space-mono/SpaceMono-Regular.ttf');
+}
+
 body {
     background-color: #EEE;
     color: #161616;
@@ -15,6 +20,10 @@ h1 {
 
 h2 {
     font-family: 'font-family: 'ヒラギノ角ゴシック','Hiragino Sans',sans-serif;'
+}
+
+h3 {
+    font-family: 'Mono-space';
 }
 
 

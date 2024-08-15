@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Masonry from 'react-masonry-css';
-import '../styles/works.css';
+import '../styles/photo.css';
 
-const Works = () => {
+const Photo = () => {
   const [images, setImages] = useState([]);
 
   useEffect(() => {
@@ -32,7 +32,9 @@ const Works = () => {
 
 
   return (
-    <div className="works-container">
+    <div className="Photo-container">
+      <h1>Photo</h1>
+
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className="my-masonry-grid"
@@ -48,4 +50,4 @@ const Works = () => {
   );
 };
 
-export default Works;
+export default Photo;

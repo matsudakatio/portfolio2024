@@ -1,6 +1,7 @@
 .works-container {
     /* padding: 50px; */
     text-align: center;
+    border: 1px solid #161616;
   }
   
   .my-masonry-grid {

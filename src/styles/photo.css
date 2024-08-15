@@ -1,0 +1,58 @@
+.photoContainer {
+}
+
+.genreButtons {
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-family: 'Mono-space';
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin: 28px 0 56px 0;
+}
+
+.genreButtons .right {
+  text-align: left;
+  display: inline-flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.genreButtons .right button {
+  display: inline-block;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.my-masonry-grid {
+  display: flex;
+  margin-left: -12px; /* gutter size offset */
+  width: auto;
+}
+
+.my-masonry-grid_column {
+  padding-left: 12px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.gallery-item {
+  margin-bottom: 12px; /* gutter size */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.loadMoreContainer {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.loadMoreContainer button {
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
