@@ -8,10 +8,32 @@
     src: url('../assets/fonts/space-mono/SpaceMono-Regular.ttf');
 }
 
+@font-face {
+    font-family: 'sf-ui-bold';
+    src: url('../assets/fonts/sf-ui-display-cufonfonts/sf-ui-display-bold-58646a511e3d9.otf');
+}
+
+@font-face {
+    font-family: 'sf-ui-heavy';
+    src: url('../assets/fonts/sf-ui-display-cufonfonts/sf-ui-display-heavy-586470160b9e5.otf');
+}
+
+@font-face {
+    font-family: 'sf-ui-medium';
+    src: url('../assets/fonts/sf-ui-display-cufonfonts/sf-ui-display-medium-58646be638f96.otf');
+}
+
+@font-face {
+    font-family: 'sf-ui-light';
+    src: url('../assets/fonts/sf-ui-display-cufonfonts/sf-ui-display-light-58646b33e0551.otf');
+}
+
 body {
     background-color: #EEE;
     color: #161616;
     padding: 0 50px;
+    transition: background-color 1s ease;
+    transition: color .5s ease;
 }
 
 h1 {

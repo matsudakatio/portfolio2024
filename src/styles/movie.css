@@ -27,6 +27,9 @@
   .imageGallery img {
     max-width: 31%;
     object-fit: cover;
+    opacity: 0; /* 追加: 画像の初期状態は透明 */
+    transition: opacity 0.5s ease; /* 追加: 画像が読み込まれたときにフェードインする */
+    height: auto; /* 高さを固定したい場合は指定 */
   }
 
 

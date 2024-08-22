@@ -7,9 +7,10 @@
 }
 
 .mainTitle {
-    display: inline-block;
-    vertical-align: middle;
+    /* display: inline-block; */
+    /* vertical-align: middle; */
     font-size: 32px;
+    text-align: center;
 }
 
 .mainTitle .titleBr {

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import Slideshow from './Slideshow';
 import Works from './pages/works';
 import About from './pages/about';
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/movie" element={<Movie />} />
         <Route path="/photo" element={<Photo />} />
       </Routes>
+      <Footer />
     </div>
   );
 };

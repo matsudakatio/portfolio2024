@@ -1,0 +1,13 @@
+
+footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+.copyright {
+    font-family: 'Mono-space';
+    text-align: center;
+    font-size: 12px;
+    padding-top: 32px;
+}
