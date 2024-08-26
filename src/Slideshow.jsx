@@ -11,6 +11,7 @@ const Slideshow = () => {
   const [textComplete, setTextComplete] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const [loading, setLoading] = useState(true); // ロード状態の管理
+  const [loadingPercentage, setLoadingPercentage] = useState(0); // パーセンテージの状態を管理
 
   const handleImageLoad = () => {
     setShowImage(true);
@@ -41,6 +42,8 @@ const Slideshow = () => {
       setVisibleLines(prevLines => [...prevLines, lines[currentLine]]);
       currentLine += 1;
 
+      setLoadingPercentage(Math.floor((currentLine / lines.length) * 100)); // パーセンテージを更新
+
       if (currentLine >= lines.length) {
         clearInterval(interval);
         setTextComplete(true);
@@ -62,24 +65,36 @@ const Slideshow = () => {
         }, 500);
       }, 2000000);
 
-      return () => clearInterval(interval);
+      return () => clearInterval(interval); // `interval` をクリア
     }
   }, [textComplete, images.length]);
 
   useEffect(() => {
     if (!loading) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         const container = document.querySelector('.imgContainer');
         const loadingElement = document.querySelector('.loading');
-        container.classList.add('visible');
-        loadingElement.classList.add('hidden'); // loading要素を非表示にする
+        if (container) {
+          container.classList.add('visible');
+        }
+        if (loadingElement) {
+          loadingElement.classList.add('hidden'); // loading要素を非表示にする
+        }
       }, 2000); // 2秒の待機時間を追加
+
+      return () => clearTimeout(timeout); // `timeout` をクリア
     }
   }, [loading]);
 
   return (
     <>
-      <div className="loading"><div className='loadingContent'>WELCOME_TO_MYPORTFOLIO</div></div>
+      <div className="loading">
+        <div className="loadingContent">
+            KAITO_MATSUDA<br />
+            PORTFOLIO_SITE<br />
+            {loadingPercentage}%
+          </div>
+      </div>
       <div className="imgContainer">
         <div className="LeftArea">
           <div className="codeText">
@@ -87,18 +102,7 @@ const Slideshow = () => {
               <h3 key={index} className="line">{line}</h3>
             ))}
           </div>
-          <div className="AreaFlex1">
-            <Link to='/photo' className="Area1">
-              <h1>Photography</h1>
-              <p>Every perception of colour is an illusion, we do not see colours as they really are. In our perception they alter one another.</p>
-              <p className="viewMore">ViewMORE</p>
-            </Link>
-            <Link to='/movie' className="Area2">
-              <h1>MOvie</h1>
-              <p>Every perception of colour is an illusion, we do not see colours as they really are. In our perception they alter one another.</p>
-              <p className="viewMore">ViewMORE</p>
-            </Link>
-          </div>
+
         </div>
 
         <div className="RightArea">
@@ -113,11 +117,28 @@ const Slideshow = () => {
             )}
           </div>
           <div className="Area4">
-            <h1>A sample example title</h1>
-            <h3>Another subtitle example</h3>
-            <p>27 May 2024<br /><br />
-              Color contrast is the difference in brightness between foreground and background colors. For accessibility purposes, aim for a 4.5:1 ratio between the foreground color (e.g. text, links, etc.) and the background color. This ratio ensures people with moderately low vision can tell the colors apart and see your content.
+            <h3>News</h3>
+            <h1>ポートフォリオサイトをオープンしました</h1>
+
+            <p>2024 / 08 /26</p>
+               
+            <p className='day'>
             </p>
+
+            <p>
+              ポートフォリオサイトをオープンしました。インスタグラムのアーカイブなども載せているのでぜひ。
+            </p>
+            <div className="snsArea">
+
+              <a href="https://www.instagram.com/kaito_matsuda_">
+              Instagram
+            </a>
+
+            <a href="https://x.com/um1h1t0">
+              Twitter
+            </a>  
+            </div>
+
           </div>
         </div>
       </div>

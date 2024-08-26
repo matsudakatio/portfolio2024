@@ -1,26 +1,50 @@
 const codeText = `
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import './styles/slideshow.css';
-import imgBackText from './imgBackText'; // インポート
+Processes: 202 total, 6
+virsion. 2.0.24
 
-const Slideshow = () => {
-  const [images, setImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [show, setShow] = useState(true);
-  const [visibleLines, setVisibleLines] = useState([]);
+# WELCOME_TO_MY_PORTFOLIO
+# GET /MyInfo.me
+def MyInfo() {
+  @myname is Kaito_Matsuda
+  Born: >2004
+  From: Japan/Aichi/Gamagori
+}
 
-  useEffect(() => {
-    // MicroCMSからデータを取得する関数
-    const fetchImages = async () => {
-      try {
-        const response = await axios.get('https://kaitoportfolio.microcms.io/api/v1/portfolio', {
-          headers: {
-            'X-API-KEY': 'D47K5TpPZfRzZCyXPPs2YxML9X5uOJyWAQdZ'
-          }
+GET. Instagram.Account -> @kaito_matsuda_{
+    For (Requests.send(DM) on Instagram!!
+}
 
+# DEFINE
+MY_WORK = CREATING_VIDEOS && TAKING_PHOTO && WRITING_CODE
 
+for (MY_WORK) {
+  ProducingShortFilms (
+    music _videos,
+    corporate_projects, etc.
+  ),
 
+  TakingPhotos (
+    ArtistPhoto,
+    PortraitPhoto,
+    AlbumJacket, etc.
+  ),
+
+  AND_I_AM_WRITING_CODE(() => {
+    FRONTEND {
+      React.js,
+    },
+
+    BACKEND {
+      Python,
+    },
+  })
+
+  USING_GEAR {
+    Camera: Lumix s5iix
+    Lens: Sigma 28mm f1.4 DG HSM Art,
+    Fender: JV Modified '50s Stratocaster HSS🎸,
+  }
+} !around(2020)
 `;
 
 export default codeText;

@@ -20,22 +20,19 @@
 .codeText {
     line-height: 1.5; 
     letter-spacing: 0.01em;
-    height: 50vh;
+    height: 100%;
     font-size: 12px;
     white-space: pre-wrap;
     font-family: 'Mono-space';
     border: 1px solid #161616;
     padding: 16px;
-    /* overflow-y: auto; */
+    overflow: scroll;
 }
 
 .LeftArea {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+
     /* border: 1px solid #161616; */
-    height: 100%;
+
     color: #161616;
 }
 
@@ -69,11 +66,16 @@
     color: color(display-p3 0.01401 0.16808 0.94372);
 }
 
-.Area1, .Area2 {
+.Area1, .Area2{
     position: relative;
     flex: 1;
     border: 1px solid #161616;
     padding: 16px;
+}
+
+.Area1 img {
+    width: 42px;
+    fill: red;
 }
 
 .Area1:hover ,.Area2:hover {
@@ -109,13 +111,22 @@
 
     .Area4 h1 {
         font-family: 'sf-ui-bold';
-        font-size: 3em;
+        font-size: 2.5em;
     }
 
     .Area4 h3 {
+        display: inline-block;
         font-family: 'sf-ui-medium';
         font-size: 24px;
-        margin-bottom: 12px;
+        padding: 6px;
+        background-color: #EEE;
+        margin-bottom: 8px;
+        color: color(display-p3 0.01401 0.16808 0.94372);
+    }
+
+    .Area4 .day {
+        margin-bottom: 8px;
+        font-size: 16px;
     }
 
     .Area4 p {
@@ -141,7 +152,18 @@
 }
 
 .loading .loadingContent {
-    font-size: 5em;
+    font-size: 3em;
+}
+
+
+.loading .loadingContent::before {
+    content: attr(data-percentage);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.5em;
+    margin-top: 46px;
 }
 
 .loading.visible {
@@ -151,6 +173,18 @@
 
 .loading.hidden {
     display: none;
+}
+
+.snsArea {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.snsArea a {
+    font-family: 'sf-ui-thin';
+    background-color: #EEE;
+    color: color(display-p3 0.01401 0.16808 0.94372);
 }
 
 
@@ -184,6 +218,11 @@
 
     .AreaFlex1, .AreaFlex2 {
         flex-direction: column;
+    }
+
+    .Area4 h1 {
+        font-size: 2em;
+        margin-bottom: 8px;
     }
 
     .Area5 {
