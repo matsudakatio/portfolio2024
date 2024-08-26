@@ -32,7 +32,6 @@
 .LeftArea {
 
     /* border: 1px solid #161616; */
-
     color: #161616;
 }
 
@@ -107,16 +106,15 @@
         padding: 16px;
         height: 100%;
         margin-top: 16px;
+        font-family: YuGothic,'Yu Gothic',sans-serif;
     }
 
     .Area4 h1 {
-        font-family: 'sf-ui-bold';
         font-size: 2.5em;
     }
 
     .Area4 h3 {
         display: inline-block;
-        font-family: 'sf-ui-medium';
         font-size: 24px;
         padding: 6px;
         background-color: #EEE;
@@ -130,7 +128,7 @@
     }
 
     .Area4 p {
-        font-family: 'sf-ui-thin';
+        font-family: YuGothic,'Yu Gothic',sans-serif;
         font-size: 16px;
     }
 
@@ -182,7 +180,7 @@
 }
 
 .snsArea a {
-    font-family: 'sf-ui-thin';
+    font-family: YuGothic,'Yu Gothic',sans-serif;
     background-color: #EEE;
     color: color(display-p3 0.01401 0.16808 0.94372);
 }
