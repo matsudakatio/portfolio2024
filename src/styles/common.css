@@ -31,7 +31,7 @@
 body {
     background-color: #EEE;
     color: #161616;
-    padding: 0 50px;
+    /* padding: 0 50px; */
     transition: background-color 1s ease;
     transition: color .5s ease;
 }

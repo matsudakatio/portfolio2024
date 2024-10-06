@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Slideshow from './Slideshow';
+import Slideshow from './home';
 import Works from './pages/works';
 import About from './pages/about';
 import Movie from './pages/movie';
@@ -14,7 +14,7 @@ import Photo from './pages/photo';
 const App = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Slideshow />} />
         {/* <Route path="/works" element={<Works />} /> */}
