@@ -12,6 +12,7 @@
     border: 1px solid #161616;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    font-family: 'Mono-space';
 }
 
 .imgContainer.visible {
