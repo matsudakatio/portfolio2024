@@ -109,34 +109,10 @@ const Slideshow = () => {
       </div>
 
       <div className='TextArea'>
-        <div className='OnCenterTextArea'>
-            <h2>MYPORTFOLIOSITE</h2>
-            <p>
-            Welcome to my portfolio site. I'm a student of computer systems at AIT.
-            I'm a web developer and filmmaker visual direction based in AIchi, Japan. 
-            Corporate videos, music videos, portraits, promotional videos, short films, company websites, event flyers, jacket designs,
-            and personal websites are my main work.All communication messages can be sent via Instagram DM.CURRENTLY starting a team to produce short films. We are looking for members.
-            <br />
-            All inquiries contact:
-            Instagram acount is <a href="https://www.instagram.com/kaito_matsuda_/">here</a>
-            </p>
-        </div>
+
 
         <div className='UnderCenterTextArea'>
-            <h2>OtherContent</h2>
-            <p>
-            
-            I started making videos at the age of 17 at Aichi Institute of Technology Meiden High School AMIDC. Currently participating in MOV研, E224
-            <br />
-            Mov研 is <a href="https://www.instagram.com/kaito_matsuda_/">here</a>
-            <br />
-            E224 is <a href="https://www.instagram.com/kaito_matsuda_/">here</a>
-            </p>
-        </div>
 
-        <div className='Links'>
-            <Link to="/movie" className="btn">Movie</Link>
-            <Link to="/photo" className="btn">Photo</Link>
         </div>
 
       </div>

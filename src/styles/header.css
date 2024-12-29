@@ -28,7 +28,7 @@
     line-height: 32px;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 780px) {
     .headerContainer {
         display: flex;
         margin: 24px 0;
@@ -60,6 +60,12 @@
     position: relative;
     z-index: 1;
     transition: .3s;
+    padding-right: 32px;
+
+    @media screen and (max-width: 959px) {
+        padding-right: 0;
+        
+    }
 }
 
 .HeaderNav::before {

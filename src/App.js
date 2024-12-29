@@ -14,7 +14,7 @@ import Photo from './pages/photo';
 const App = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Routes>
         <Route path="/" element={<Slideshow />} />
         {/* <Route path="/works" element={<Works />} /> */}

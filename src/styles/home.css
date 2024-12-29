@@ -13,6 +13,12 @@
     opacity: 0;
     transition: opacity 1s ease-in-out;
     font-family: 'Mono-space';
+    padding: 4%;
+    padding-top: 6.5%;
+
+    @media screen and (max-width: 959px) {
+        padding-top: 24%;
+    }
 }
 
 .imgContainer.visible {
@@ -27,11 +33,10 @@
 }
 
 .TextArea {
-    height: calc(100vh - 56px);
-    margin-top: 100vh;
+    height: calc(88vh - 64px);
+    /* margin-top: 100vh; */
     z-index: 100!important;
     /* border: 1px solid red; */
-    font-family: 'Mono-space';
 
     display: flex;
     flex-direction: column;

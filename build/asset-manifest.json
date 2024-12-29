@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f5b069f4.css",
+    "main.js": "/static/js/main.cf1c3ef3.js",
+    "static/js/453.83234151.chunk.js": "/static/js/453.83234151.chunk.js",
+    "static/media/sf-ui-display-heavy-586470160b9e5.otf": "/static/media/sf-ui-display-heavy-586470160b9e5.231bc1a484977910f09b.otf",
+    "static/media/sf-ui-display-bold-58646a511e3d9.otf": "/static/media/sf-ui-display-bold-58646a511e3d9.4ac567b4926ac8d6459d.otf",
+    "static/media/sf-ui-display-medium-58646be638f96.otf": "/static/media/sf-ui-display-medium-58646be638f96.32f938759a1b1b8ce03b.otf",
+    "static/media/sf-ui-display-light-58646b33e0551.otf": "/static/media/sf-ui-display-light-58646b33e0551.b4ca712946a31ed82045.otf",
+    "static/media/SpaceMono-Regular.ttf": "/static/media/SpaceMono-Regular.8dc9dfb5a618f0d496e9.ttf",
+    "static/media/AdventPro-Light.ttf": "/static/media/AdventPro-Light.1c32d5b2143598478580.ttf",
+    "index.html": "/index.html",
+    "main.f5b069f4.css.map": "/static/css/main.f5b069f4.css.map",
+    "main.cf1c3ef3.js.map": "/static/js/main.cf1c3ef3.js.map",
+    "453.83234151.chunk.js.map": "/static/js/453.83234151.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f5b069f4.css",
+    "static/js/main.cf1c3ef3.js"
+  ]
+}
