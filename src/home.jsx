@@ -104,6 +104,7 @@ const Slideshow = () => {
             autoPlay
             muted
             loop
+            playsInline
             className='TopImg'
             src={mainVisual}
             onLoad={handleImageLoad}
