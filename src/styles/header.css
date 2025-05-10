@@ -1,16 +1,21 @@
 .headerContainer {
-    /* border: 1px solid red; */
     position: relative;
 
-    /* text-align: center; */
     line-height: 100px;
+    /* padding: 16px; */
+        mix-blend-mode: difference;
+    color: white;
+
+
 }
 
 .mainTitle {
-    /* display: inline-block; */
-    /* vertical-align: middle; */
     font-size: 32px;
-    text-align: center;
+    text-align: left;
+
+    margin-left: 8%;
+
+    /* display: none; */
 }
 
 .mainTitle .titleBr {
@@ -19,25 +24,30 @@
 
 .sideLink {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 32px;
     position: absolute;
-    right: 0;
+    right: 8%;
     top: 50%;
     transform: translateY(-50%);
+
     font-size: 32px;
     line-height: 32px;
+
+
 }
 
 @media screen and (max-width: 780px) {
     .headerContainer {
         display: flex;
         margin: 24px 0;
-
     }
 
     .sideLink {
         display: block;
         font-size: 24px;
+        text-align: right;
     }
 
     .mainTitle {
@@ -48,19 +58,20 @@
     .mainTitle .titleBr {
         display: block;
     }
-}
+ }
 
 
 
 
 .HeaderNav {
+
     background: transparent;
     border-radius: 3px;
     text-decoration: none;
     position: relative;
     z-index: 1;
     transition: .3s;
-    padding-right: 32px;
+
 
     @media screen and (max-width: 959px) {
         padding-right: 0;
@@ -69,6 +80,7 @@
 }
 
 .HeaderNav::before {
+
     content: "";
     width: 100%;
     height: 100%;
@@ -76,14 +88,15 @@
     top: 0;
     left: 0;
     z-index: -1;
-    background: #161616;
+    background: #eee;
     transition: transform normal .2s;
     transform-origin: 100% 50%;
     transform: scaleX(0);
+
 }
 
 .HeaderNav:hover {
-    color: #EEE;
+    color: #161616;
 }
 
 .HeaderNav:hover::before {

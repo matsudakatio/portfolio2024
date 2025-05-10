@@ -58,7 +58,7 @@ const Movie = () => {
         <div className="movieArea">
           {movies.map((movie, index) => (
               <div className="movieItem">
-                <h2>>>{movie.title}</h2>
+                <h2>{movie.title}</h2>
                 <a href={movie.url} key={index} target="_blank" rel="noopener noreferrer">
                 <div className="imageGallery">
                   {movie.image.map((img, imgIndex) => (

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles/home.css';
 import codeText from './codeText'; // インポート
+import mainVisual from './assets/img/web gray.mp4'; // メインビジュアルのインポート
 
 const Slideshow = () => {
   const [images, setImages] = useState([]);
@@ -94,25 +95,35 @@ const Slideshow = () => {
         <div className="loadingContent">
             KAITO_MATSUDA<br />
             PORTFOLIO_SITE<br />
-            {loadingPercentage}%
+            {loadingPercentage}
           </div>
       </div>
       <div className="imgContainer">
         {showImage && (
-          <img
-          className='TopImg'
-            src={images[currentIndex].src.url}
-            alt={images[currentIndex].title}
+          <video
+            autoPlay
+            muted
+            loop
+            className='TopImg'
+            src={mainVisual}
             onLoad={handleImageLoad}
-          />
+          ></video>
         )}
       </div>
 
       <div className='TextArea'>
+        
+        <div className='OverTextArea'>
+            <p className='name'>KAITO MATSUDA</p>
+            04-08-05<br /><br />
 
+            FILM DIRECTOR / CINEMATOGRAPHER <br />
+            BASED IN AICHI NAGOYA
+        </div>
 
-        <div className='UnderCenterTextArea'>
-
+        <div className='UnderTextArea'>
+      I'M ALSO A <br />WEB PROGRAMMER.<br /><br />
+      THIS WEBSITE WAS BUILT AND MAINTAINED <br />USING REACT.
         </div>
 
       </div>

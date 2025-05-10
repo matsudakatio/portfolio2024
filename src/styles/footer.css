@@ -1,13 +1,16 @@
 
 footer {
-    position: absolute;
+    /* position: absolute; */
     right: 0;
     left: 0;
+    bottom: 0;
+    /* display: none; */
 }
 
 .copyright {
     font-family: 'Mono-space';
     text-align: center;
     font-size: 12px;
-    padding-top: 32px;
+    mix-blend-mode: difference;
+    color: white;
 }

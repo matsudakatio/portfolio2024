@@ -23,16 +23,16 @@ const Header = () => {
 
   return (
     <div className="headerContainer">
-      <div className="mainTitle">
+
+        <div className="mainTitle">
         <h1>
           <Link to='/'>KAITO MATSUDA<br className="titleBr" /> PORTFOLIO SITE</Link>
         </h1>
       </div>
       <div className="sideLink">
-        {/* <div className="HeaderNav"><h1><Link to='/works'>WOrks</Link></h1></div> */}
-        {/* <div className="HeaderNav"><h1><Link to='/about'>ABout</Link></h1></div> */}
         <div className="HeaderNav"><h1><Link to='/photo'>PHotography</Link></h1></div>
         <div className="HeaderNav"><h1><Link to='/movie'>MOvie</Link></h1></div>
+        {/* <div className="HeaderNav"><h1><Link to='/essay'>ESsay</Link></h1></div> */}
       </div>
     </div>
   );
