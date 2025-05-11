@@ -94,6 +94,15 @@
     }
 }
 
+.UnderTextArea .icon {
+}
+
+.UnderTextArea svg {
+        mix-blend-mode: difference;
+        fill: white;
+        margin-bottom: 4px;
+}
+
 .loading {
     position: absolute;
     height: 100vh;
