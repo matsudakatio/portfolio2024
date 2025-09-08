@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './styles/home.css';
 import codeText from './codeText'; // インポート
@@ -7,17 +6,12 @@ import mainVisual from './assets/img/web gray.mp4'; // メインビジュアル�
 
 const Slideshow = () => {
   const [images, setImages] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibleLines, setVisibleLines] = useState([]);
   const [textComplete, setTextComplete] = useState(false);
-  const [showImage, setShowImage] = useState(false);
   const [loading, setLoading] = useState(true); // ロード状態の管理
   const [loadingPercentage, setLoadingPercentage] = useState(0); // パーセンテージの状態を管理
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  const handleImageLoad = () => {
-    setShowImage(true);
-  };
-
+  // microCMSからデータを取得
   useEffect(() => {
     const fetchImages = async () => {
       try {
@@ -31,21 +25,19 @@ const Slideshow = () => {
         console.error('Error fetching data from MicroCMS:', error);
       }
     };
-
     fetchImages();
   }, []);
 
+  // テキストアニメーション
   useEffect(() => {
     const lines = codeText.split('\n');
     let currentLine = 0;
 
     const interval = setInterval(() => {
-      setVisibleLines(prevLines => [...prevLines, lines[currentLine]]);
-      currentLine += 1;
-
-      setLoadingPercentage(Math.floor((currentLine / lines.length) * 100)); // パーセンテージを更新
-
-      if (currentLine >= lines.length) {
+      if (currentLine < lines.length) {
+        setLoadingPercentage(Math.floor(((currentLine + 1) / lines.length) * 100));
+        currentLine += 1;
+      } else {
         clearInterval(interval);
         setTextComplete(true);
       }
@@ -53,67 +45,58 @@ const Slideshow = () => {
 
     return () => clearInterval(interval);
   }, []);
-
+  
+  // ローディング完了の判定
   useEffect(() => {
-    if (textComplete && images.length > 0) {
-      setShowImage(true);
-      setLoading(false); // テキストと画像が準備できたらロード完了
-      const interval = setInterval(() => {
-        setShowImage(false);
-        setTimeout(() => {
-          setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
-          setShowImage(true);
-        }, 500);
-      }, 2000000);
-
-      return () => clearInterval(interval); // `interval` をクリア
+    if (textComplete && videoLoaded) {
+      setTimeout(() => {
+        setLoading(false);
+      }, 500); // 少し遅延させてスムーズに切り替え
     }
-  }, [textComplete, images.length]);
+  }, [textComplete, videoLoaded]);
 
+  // ローディング完了後の表示切り替え
   useEffect(() => {
     if (!loading) {
-      const timeout = setTimeout(() => {
-        const container = document.querySelector('.imgContainer');
-        const text = document.querySelector('.TextArea');
-        const loadingElement = document.querySelector('.loading');
-        if (container) {
-          container.classList.add('visible');
-          text.classList.add('visible');
-        }
-        if (loadingElement) {
-          loadingElement.classList.add('hidden'); // loading要素を非表示にする
-        }
-      }, 2000); // 2秒の待機時間を追加
+      const container = document.querySelector('.imgContainer');
+      const text = document.querySelector('.TextArea');
+      const loadingElement = document.querySelector('.loading');
 
-      return () => clearTimeout(timeout); // `timeout` をクリア
+      if (loadingElement) {
+        loadingElement.classList.add('hidden');
+      }
+      if (container && text) {
+        container.classList.add('visible');
+        text.classList.add('visible');
+      }
     }
   }, [loading]);
 
+
   return (
     <>
-      <div className="loading">
-        <div className="loadingContent">
-            KAITO_MATSUDA<br />
-            PORTFOLIO_SITE<br />
-            {loadingPercentage}
-          </div>
-      </div>
-      <div className="imgContainer">
-        {showImage && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className='TopImg'
-            src={mainVisual}
-            onLoad={handleImageLoad}
-          ></video>
-        )}
+      {loading && (
+        <div className="loading">
+          <div className="loadingContent">
+              KAITO_MATSUDA<br />
+              PORTFOLIO_SITE<br />
+              {loadingPercentage}%
+            </div>
+        </div>
+      )}
+      <div className={`imgContainer ${!loading ? 'visible' : ''}`}>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className='TopImg'
+          src={mainVisual}
+          onCanPlay={() => setVideoLoaded(true)} // ビデオが再生可能になったら
+        ></video>
       </div>
 
-      <div className='TextArea'>
-        
+      <div className={`TextArea ${!loading ? 'visible' : ''}`}>
         <div className='OverTextArea'>
             <p className='name'>KAITO MATSUDA</p>
             04-08-05<br /><br />
@@ -129,11 +112,7 @@ const Slideshow = () => {
             </svg>
           </a>
           <br />
-
-          I'M ALSO A <br />WEB PROGRAMMER.<br /><br />
-          THIS WEBSITE WAS BUILT AND MAINTAINED <br />USING REACT.
         </div>
-
       </div>
     </>
   );

@@ -1,0 +1,197 @@
+.essay-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: calc(100vh - 120px); 
+  padding: 40px;
+  overflow-y: auto; 
+  /* border: 1px solid red; */
+  margin: 0;
+  font-family: 
+    "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", "Yu Mincho", "游明朝", "MS PMincho", "MS P明朝", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  -webkit-overflow-scrolling: touch;
+
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.essay-content {
+  position: relative;
+  writing-mode: vertical-rl; /* 縦書きは維持 */
+  text-orientation: mixed;
+  padding: 20px;
+
+  /* --- ここからが重要な変更点 --- */
+  /* コンテナの高さ一杯に広げる */
+  height: 100%; 
+  /* 文章が長くなっても改行させず、横に長く伸びるようにする */
+  /* white-space: nowrap;  */
+  
+  /* Flexアイテムとして縮まないように設定 */
+  flex-shrink: 0; 
+}
+
+/* Webkit系ブラウザ（Chrome, Safari）のスクロールバーデザイン */
+.essay-container::-webkit-scrollbar {
+  height: 8px;
+}
+.essay-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.essay-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.essay-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.essay-title {
+  font-size: 2.3rem; 
+  margin-left: 72px;
+  font-family: 
+    "Hiragino Mincho ProN", "ヒラギノ明朝 ProN W3", "Yu Mincho", "游明朝", "MS PMincho", "MS P明朝", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.essay-date {
+  font-size: 16px;
+
+  bottom: 0;
+  left: 0;
+
+}
+
+.essay-body {
+  font-size: 16px;
+  line-height: 2.5; 
+  margin-top: 40px; 
+}
+
+.essay-body p {
+  margin-bottom: 2em; 
+}
+
+
+/* ナビゲーションボタンのコンテナ */
+.essay-navigation {
+  position: absolute; /* essay-containerを基準に配置 */
+  bottom: 30px;
+  /* right: 40px; */
+  display: flex;
+  gap: 15px; /* ボタン間のスペース */
+}
+
+/* ボタンの基本スタイル */
+.essay-navigation button {
+  color: #161616;
+  border: none;
+  padding: 12px 12px;
+  font-size: 1rem;
+  font-family: inherit; 
+  cursor: pointer;
+
+  border-radius: 100%;
+  transition: background-color 0.3s, opacity 0.3s;
+}
+
+
+/* 非活性（disabled）のときのスタイル */
+.essay-navigation button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* .essay-container に position: relative; を追加 */
+.essay-container {
+  /* ...既存のスタイル... */
+  position: relative; /* ボタンを絶対配置するための基準点 */
+}
+
+/* 日付の位置をボタンと被らないように調整 */
+.essay-date {
+  /* ...既存のスタイル... */
+  left: 20px; /* 少し右にずらす */
+}
+
+/* アイキャッチ画像用のコンテナ */
+.essay-eyecatch {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* クリックできることを示すカーソル */
+  overflow: hidden;
+}
+
+/* アイキャッチ画像 */
+.essay-eyecatch img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease-out; /* ホバーアニメーションは維持 */
+
+  /* --- ここから追加/変更 --- */
+  animation: fadeInZoom 1s ease-out forwards; /* フェードインとズームインのアニメーションを適用 */
+  /* または、スライドインのアニメーションを使いたい場合は以下 */
+  /* animation: fadeInSlide 1s ease-out forwards; */
+}
+
+/* 画像がない場合の表示 */
+.no-image {
+  color: #888;
+}
+
+
+/* フェードイン */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* フェードアウト */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+
+/* アイキャッチ画像用のコンテナのスタイルを修正 */
+.essay-eyecatch {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  /* ★ フェードインアニメーションを適用 */
+  animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+/* ★ フェードアウト用のアニメーションクラス */
+.essay-eyecatch.exiting {
+  animation: fadeOut 1.5s ease-in-out forwards;
+}
+
+
+/* 画像自体のスタイル（変更なし） */
+.essay-eyecatch img {
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .essay-eyecatch img {
+    width: 100%;
+  }
+}
+

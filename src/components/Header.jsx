@@ -32,7 +32,7 @@ const Header = () => {
       <div className="sideLink">
         <div className="HeaderNav"><h1><Link to='/photo'>PHotography</Link></h1></div>
         <div className="HeaderNav"><h1><Link to='/movie'>MOvie</Link></h1></div>
-        {/* <div className="HeaderNav"><h1><Link to='/essay'>ESsay</Link></h1></div> */}
+        <div className="HeaderNav"><h1><Link to='/essay'>ESsay</Link></h1></div>
       </div>
     </div>
   );

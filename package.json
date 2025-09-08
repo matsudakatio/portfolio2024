@@ -23,7 +23,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "proxy": "https://kaitoportfolio.microcms.io",
   "eslintConfig": {
     "extends": [
