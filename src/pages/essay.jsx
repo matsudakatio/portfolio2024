@@ -79,7 +79,7 @@ const Essay = () => {
         <>
           <div className="essay-content">
             {/* ★ 2. 回数の表示方法を「総数 - 現在のインデックス」に変更 */}
-            <div className="essay-number">{`第${essays.length - currentIndex}回`}</div>
+            <div className="essay-number">{`#${essays.length - currentIndex}`}</div>
             <h1 className="essay-title">{currentEssay.title}</h1>
             <div className="essay-body" dangerouslySetInnerHTML={{ __html: currentEssay.body }} />
           </div>
